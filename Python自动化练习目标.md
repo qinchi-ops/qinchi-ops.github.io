@@ -1,0 +1,33 @@
+
+
+
+# Python  自动化练习
+
+
+
+**  一、网络
+
+* 1、网络设备自动备份										done
+* 2、网络防火墙API调用
+* 3、网络配置，信息对比 Gitlab ,数据库调用
+* 4、网络自动化软件
+
+
+
+** 二、Linux
+
+
+#  bot 安全问题，允许那些人或者group接入
+* 1、telegram 机器人		done
+* 2、bot 调用 vpn status 	done
+* 3、bot 查看接口流量信息	done
+* 4、bot 开通open新用户， 本地处理替换配置文件
+* 5、bot 下载上传发出
+* 6、bot 发布币市信息
+
+
+** 三、云DevOps
+
+* 1、AWS 拔资产
+* 2、考虑搭建 Vault
+* 3、安全组，EIP，域名，CDN,Lmbda场景考虑
