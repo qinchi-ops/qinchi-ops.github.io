@@ -25,58 +25,60 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a2e 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            background: var(--dark-bg);
+            border-radius: 20px;
+            padding: 40px 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 60px 20px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 40px 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
         }
 
         .avatar {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--primary-color);
+            border: 5px solid var(--primary-color);
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
             transition: transform 0.3s ease;
         }
 
         .avatar:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(5deg);
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
         }
 
         .subtitle {
             font-size: 1.5em;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
 
         .social-links {
@@ -89,192 +91,189 @@
 
         .social-links a {
             color: var(--text-primary);
-            font-size: 1.8em;
+            font-size: 2em;
             transition: all 0.3s ease;
-            padding: 10px;
+            padding: 15px;
             border-radius: 50%;
             background: var(--card-bg);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
         }
 
         .social-links a:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 60px 0;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 40px;
             color: var(--primary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            font-weight: 600;
         }
 
         /* Stats Section */
-        .stats-grid {
+        .stats-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin: 40px 0;
         }
 
-        .stat-card {
-            background: var(--card-bg);
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Skills Section */
-        .section-title {
-            font-size: 2.5em;
+            padding: 20px;
             text-align: center;
-            margin: 60px 0 40px;
-            color: var(--text-primary);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .skill-category {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
         .skill-category:hover {
-            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary-color);
         }
 
         .skill-category h3 {
             color: var(--primary-color);
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .skill-icons {
+        .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .skill-icon {
-            display: flex;
+        .skill-badge {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(37, 99, 235, 0.1);
-            padding: 10px 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 18px;
             border-radius: 25px;
             font-size: 0.95em;
+            font-weight: 500;
             transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .skill-icon:hover {
-            background: var(--primary-color);
+        .skill-badge:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
         }
 
-        /* Projects Section */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-bottom: 60px;
         }
 
         .project-card {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .project-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .project-card h3 {
             color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-size: 1.5em;
         }
 
         .project-card p {
             color: var(--text-secondary);
             margin-bottom: 15px;
+            font-size: 0.95em;
         }
 
-        .project-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
+        .project-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
         }
 
-        /* Contribution Snake */
+        .project-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Contribution Section */
         .contribution-section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 60px 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contribution-section img {
             max-width: 100%;
+            height: auto;
             border-radius: 10px;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            margin-top: 60px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-section h2 {
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
-        .contact-email {
-            font-size: 1.3em;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-        }
-
-        .contact-email a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-email a:hover {
-            color: var(--accent-green);
+            margin-top: 20px;
         }
 
         /* Footer */
@@ -282,10 +281,20 @@
             text-align: center;
             padding: 40px 20px;
             color: var(--text-secondary);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
         }
 
-        /* Responsive Design */
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
             h1 {
                 font-size: 2em;
             }
@@ -294,46 +303,54 @@
                 font-size: 1.2em;
             }
 
-            .stats-grid,
+            .stats-container,
             .skills-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
             .section-title {
-                font-size: 2em;
-            }
-
-            .social-links {
-                gap: 15px;
+                font-size: 1.5em;
             }
 
             .social-links a {
+                width: 50px;
+                height: 50px;
                 font-size: 1.5em;
             }
         }
 
         /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .container > * {
+            animation: fadeInUp 0.6s ease-out;
         }
+
+        .skill-category, .project-card, .stat-item {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.2s; }
+        .skill-category:nth-child(3) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
+        <!-- Header -->
         <header>
-            <img src="https://avatars.githubusercontent.com/u/51239646?v=4" alt="Qinchi's Avatar" class="avatar">
+            <img src="https://avatars.githubusercontent.com/u/51239646?v=4" alt="Qinchi" class="avatar">
             <h1>Qinchi</h1>
             <p class="subtitle">DevOps | SRE | Network Engineer</p>
             <div class="social-links">
@@ -346,102 +363,125 @@
                 <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://yourwebsite.com" target="_blank" title="Website">
-                    <i class="fas fa-globe"></i>
-                </a>
             </div>
         </header>
 
-        <!-- GitHub Stats Section -->
-        <section class="stats-grid">
-            <div class="stat-card">
-                <img src="https://github-readme-stats.vercel.app/api?username=qinchi-ops&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats">
-            </div>
-            <div class="stat-card">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qinchi-ops&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages">
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <h2 class="section-title">🛠️ Tech Stack</h2>
-
-        <section class="skills-grid">
-            <div class="skill-category">
-                <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                <div class="skill-icons">
-                    <span class="skill-icon"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="skill-icon"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
-                    <span class="skill-icon"><i class="fab fa-docker"></i> Docker</span>
-                    <span class="skill-icon"><i class="fas fa-cube"></i> Terraform</span>
-                    <span class="skill-icon"><i class="fas fa-server"></i> Ansible</span>
-                    <span class="skill-icon"><i class="fab fa-jenkins"></i> Jenkins</span>
+        <!-- GitHub Stats -->
+        <div class="section">
+            <h2 class="section-title">📊 GitHub Statistics</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <img src="https://github-readme-stats.vercel.app/api?username=qinchi-ops&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true"
+                         alt="GitHub Stats"
+                         onerror="this.onerror=null; this.src='https://img.shields.io/badge/Stats-Loading-lightgray';">
+                </div>
+                <div class="stat-item">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qinchi-ops&layout=compact&theme=github_dark&hide_border=true"
+                         alt="Top Languages"
+                         onerror="this.onerror=null; this.src='https://img.shields.io/badge/Languages-Loading-lightgray';">
                 </div>
             </div>
+        </div>
 
-            <div class="skill-category">
-                <h3><i class="fas fa-network-wired"></i> Network & Automation</h3>
-                <div class="skill-icons">
-                    <span class="skill-icon"><i class="fab fa-python"></i> Python</span>
-                    <span class="skill-icon"><i class="fab fa-golang"></i> Go</span>
-                    <span class="skill-icon"><i class="fas fa-terminal"></i> Shell</span>
-                    <span class="skill-icon"><i class="fab fa-git-alt"></i> Git</span>
-                    <span class="skill-icon"><i class="fab fa-linux"></i> Linux</span>
+        <!-- Skills -->
+        <div class="section">
+            <h2 class="section-title">🛠️ Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                        <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="skill-badge"><i class="fas fa-cube"></i> Terraform</span>
+                        <span class="skill-badge"><i class="fas fa-server"></i> Ansible</span>
+                        <span class="skill-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Network & Automation</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-badge"><i class="fab fa-golang"></i> Go</span>
+                        <span class="skill-badge"><i class="fas fa-terminal"></i> Shell</span>
+                        <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Monitoring & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fas fa-fire"></i> Prometheus</span>
+                        <span class="skill-badge"><i class="fas fa-chart-area"></i> Grafana</span>
+                        <span class="skill-badge"><i class="fas fa-search"></i> ELK Stack</span>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="skill-category">
-                <h3><i class="fas fa-chart-line"></i> Monitoring & Tools</h3>
-                <div class="skill-icons">
-                    <span class="skill-icon"><i class="fas fa-fire"></i> Prometheus</span>
-                    <span class="skill-icon"><i class="fas fa-chart-area"></i> Grafana</span>
-                    <span class="skill-icon"><i class="fas fa-search"></i> ELK Stack</span>
-                </div>
+        <!-- Projects -->
+        <div class="section">
+            <h2 class="section-title">🚀 Featured Projects</h2>
+            <div class="projects-grid">
+                <a href="https://github.com/qinchi-ops/AWS" target="_blank" class="project-card">
+                    <h3>AWS SDK Boto3</h3>
+                    <p>AWS SDK and automation scripts for cloud operations</p>
+                    <div class="project-stats">
+                        <span><i class="fab fa-python"></i> Python</span>
+                        <span><i class="fas fa-star"></i> ⭐</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/qinchi-ops/NetDevOps" target="_blank" class="project-card">
+                    <h3>NetDevOps</h3>
+                    <p>Network automation and operations toolkit</p>
+                    <div class="project-stats">
+                        <span><i class="fab fa-python"></i> Python</span>
+                        <span><i class="fas fa-star"></i> ⭐</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/qinchi-ops/k8s-lab" target="_blank" class="project-card">
+                    <h3>K8s Lab</h3>
+                    <p>Kubernetes laboratory and experiments</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-terminal"></i> Shell</span>
+                        <span><i class="fas fa-star"></i> ⭐</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/qinchi-ops/govlog" target="_blank" class="project-card">
+                    <h3>govlog</h3>
+                    <p>Go logging library and utilities</p>
+                    <div class="project-stats">
+                        <span><i class="fab fa-golang"></i> Go</span>
+                        <span><i class="fas fa-star"></i> ⭐</span>
+                    </div>
+                </a>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <h2 class="section-title">🚀 Featured Projects</h2>
-
-        <section class="projects-grid">
-            <div class="project-card" onclick="window.open('https://github.com/qinchi-ops/AWS', '_blank')">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=qinchi-ops&repo=AWS&theme=github_dark&hide_border=true" alt="AWS Project">
-                <h3>AWS SDK Boto3</h3>
-                <p>AWS SDK and automation scripts</p>
-            </div>
-
-            <div class="project-card" onclick="window.open('https://github.com/qinchi-ops/NetDevOps', '_blank')">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=qinchi-ops&repo=NetDevOps&theme=github_dark&hide_border=true" alt="NetDevOps Project">
-                <h3>NetDevOps</h3>
-                <p>Network automation and operations</p>
-            </div>
-
-            <div class="project-card" onclick="window.open('https://github.com/qinchi-ops/k8s-lab', '_blank')">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=qinchi-ops&repo=k8s-lab&theme=github_dark&hide_border=true" alt="K8s Lab">
-                <h3>K8s Lab</h3>
-                <p>Kubernetes laboratory and experiments</p>
-            </div>
-
-            <div class="project-card" onclick="window.open('https://github.com/qinchi-ops/govlog', '_blank')">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=qinchi-ops&repo=govlog&theme=github_dark&hide_border=true" alt="Go Log">
-                <h3>govlog</h3>
-                <p>Go logging library and utilities</p>
-            </div>
-        </section>
+        </div>
 
         <!-- Contribution Snake -->
-        <section class="contribution-section">
-            <h2 style="margin-bottom: 30px; color: var(--primary-color);">📈 Contribution Activity</h2>
-            <img src="https://raw.githubusercontent.com/qinchi-ops/qinchi-ops/output/github-contribution-grid-snake.svg" alt="Contribution Snake">
-        </section>
+        <div class="section">
+            <h2 class="section-title">📈 Contribution Activity</h2>
+            <div class="contribution-section">
+                <p style="margin-bottom: 20px; color: var(--text-secondary);">My GitHub contribution graph</p>
+                <img src="https://raw.githubusercontent.com/qinchi-ops/qinchi-ops/output/github-contribution-grid-snake.svg"
+                     alt="Contribution Snake"
+                     onerror="this.onerror=null; this.src='https://img.shields.io/badge/Contribution-Loading-lightgray'; this.parentElement.innerHTML='<p style=\'color: var(--text-secondary);\'>Contribution snake is being generated... Check back soon!</p>';">
+            </div>
+        </div>
 
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <h2>🤝 Let's Connect</h2>
-            <p class="contact-email">
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <!-- Contact -->
+        <div class="section" style="text-align: center;">
+            <h2 class="section-title">🤝 Let's Connect</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">
+                <a href="mailto:your.email@example.com" style="color: var(--primary-color); text-decoration: none;">your.email@example.com</a>
             </p>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                I'm always interested in hearing about new projects and opportunities.
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                I'm always interested in hearing about new projects and opportunities in DevOps, SRE, and Network Engineering.
             </p>
             <div class="social-links" style="justify-content: center;">
                 <a href="https://github.com/qinchi-ops" target="_blank">
@@ -454,48 +494,36 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-        </section>
+        </div>
 
         <!-- Footer -->
         <footer>
-            <p>© 2026 Qinchi. Built with ❤️ and ☕</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <i class="fas fa-rocket"></i> "I automate everything, even my coffee machine"
+            <p>© 2026 Qinchi</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">
+                <i class="fas fa-rocket"></i> "I automate everything, even my coffee machine ☕"
             </p>
         </footer>
     </div>
 
     <script>
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Add smooth animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
                 });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.skill-category, .project-card, .stat-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
             });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-category, .project-card, .stat-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
