@@ -6,6 +6,7 @@
     <meta name="description" content="Qinchi - DevOps | SRE | Network Engineer">
     <title>Qinchi | DevOps & SRE Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,293 +15,534 @@
         }
 
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #0aff0a;
+            --dark-bg: #0a0e27;
+            --card-bg: #131630;
+            --text-primary: #e0e6ed;
+            --text-secondary: #94a3b8;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark-bg);
+            background-image:
+                radial-gradient(ellipse at top, #1a1f4a 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, #0d1025 0%, transparent 50%),
+                linear-gradient(180deg, #0a0e27 0%, #151b3d 50%, #0a0e27 100%);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: var(--dark-bg);
+            background: rgba(19, 22, 48, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow:
+                0 0 60px rgba(0, 243, 255, 0.1),
+                0 0 100px rgba(188, 19, 254, 0.05),
+                inset 0 0 60px rgba(0, 243, 255, 0.02);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 40px;
+            padding: 60px 20px 40px;
+            border-bottom: 2px solid rgba(0, 243, 255, 0.2);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            box-shadow: 0 0 10px var(--neon-blue);
         }
 
         .avatar {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
-            transition: transform 0.3s ease;
+            border: 4px solid var(--neon-blue);
+            margin-bottom: 25px;
+            box-shadow:
+                0 0 30px rgba(0, 243, 255, 0.5),
+                0 0 60px rgba(0, 243, 255, 0.3);
+            transition: all 0.4s ease;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.5), 0 0 60px rgba(0, 243, 255, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(0, 243, 255, 0.8), 0 0 100px rgba(188, 19, 254, 0.4); }
         }
 
         .avatar:hover {
-            transform: scale(1.05) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
         }
 
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 700;
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            letter-spacing: 3px;
         }
 
         .subtitle {
-            font-size: 1.5em;
-            color: var(--text-secondary);
+            font-size: 1.8em;
+            color: var(--neon-blue);
             margin-bottom: 30px;
-            font-weight: 300;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
 
         .social-links a {
-            color: var(--text-primary);
-            font-size: 2em;
+            color: var(--neon-blue);
+            font-size: 2.2em;
             transition: all 0.3s ease;
-            padding: 15px;
+            padding: 18px;
             border-radius: 50%;
-            background: var(--card-bg);
+            background: rgba(0, 243, 255, 0.05);
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .social-links a:hover::before {
+            opacity: 1;
+            animation: shine 0.5s ease;
+        }
+
+        @keyframes shine {
+            0% { top: -50%; left: -50%; }
+            100% { top: 150%; left: 150%; }
         }
 
         .social-links a:hover {
             color: white;
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow:
+                0 0 30px rgba(0, 243, 255, 0.6),
+                0 0 60px rgba(188, 19, 254, 0.4);
+            border-color: var(--neon-blue);
         }
 
         /* Section Styles */
         .section {
-            margin: 60px 0;
-            padding: 30px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 70px 0;
+            padding: 40px;
+            background: rgba(19, 22, 48, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.15);
+            box-shadow:
+                0 0 40px rgba(0, 243, 255, 0.05),
+                inset 0 0 40px rgba(0, 243, 255, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .section:hover::before {
+            left: 100%;
         }
 
         .section-title {
-            font-size: 2em;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-weight: 600;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* Stats Section */
+        /* Stats Section with Badges */
         .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             margin: 40px 0;
         }
 
-        .stat-item {
-            background: rgba(255, 255, 255, 0.05);
+        .stat-badge {
+            background: rgba(0, 243, 255, 0.08);
+            border: 2px solid var(--neon-blue);
             border-radius: 15px;
-            padding: 20px;
+            padding: 20px 30px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-item:hover {
+        .stat-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(0, 243, 255, 0.1) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-badge:hover::before {
+            transform: translateX(100%);
+        }
+
+        .stat-badge:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 0 30px rgba(0, 243, 255, 0.4),
+                inset 0 0 20px rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-purple);
         }
 
-        .stat-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(188, 19, 254, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(188, 19, 254, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .skill-category:hover::after {
+            opacity: 1;
         }
 
         .skill-category:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--primary-color);
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--neon-purple);
+            box-shadow:
+                0 0 40px rgba(188, 19, 254, 0.3),
+                inset 0 0 30px rgba(188, 19, 254, 0.05);
         }
 
         .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.4em;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-purple);
+            margin-bottom: 25px;
+            font-size: 1.5em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
         }
 
         .skill-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            font-weight: 500;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(188, 19, 254, 0.1));
+            color: var(--neon-blue);
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 600;
             transition: all 0.3s ease;
             cursor: default;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
 
         .skill-badge:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            transform: scale(1.08);
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(188, 19, 254, 0.2));
+            box-shadow:
+                0 0 25px rgba(0, 243, 255, 0.5),
+                inset 0 0 15px rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(0, 243, 255, 0.03);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(0, 243, 255, 0.15);
+            transition: all 0.4s ease;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
         }
 
         .project-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 243, 255, 0.06);
+            border-color: var(--neon-blue);
+            transform: translateY(-8px);
+            box-shadow:
+                0 15px 40px rgba(0, 243, 255, 0.2),
+                inset 0 0 30px rgba(0, 243, 255, 0.03);
         }
 
         .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.5em;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+            font-size: 1.7em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
         }
 
         .project-card p {
             color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            position: relative;
+            z-index: 1;
         }
 
         .project-stats {
             display: flex;
-            gap: 15px;
-            font-size: 0.85em;
-            color: var(--text-secondary);
+            gap: 20px;
+            font-size: 0.95em;
+            color: var(--neon-blue);
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .project-stats span {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(0, 243, 255, 0.08);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
         }
 
         /* Contribution Section */
         .contribution-section {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 30px;
+            background: rgba(188, 19, 254, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(188, 19, 254, 0.15);
         }
 
         .contribution-section img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             color: var(--text-secondary);
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
+            border-top: 2px solid rgba(0, 243, 255, 0.2);
+            margin-top: 70px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+            box-shadow: 0 0 10px var(--neon-purple);
         }
 
         footer p {
-            margin: 10px 0;
+            margin: 12px 0;
+            font-size: 1.05em;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 20px 15px;
+                padding: 30px 15px;
             }
 
             h1 {
                 font-size: 2em;
+                letter-spacing: 2px;
             }
 
             .subtitle {
-                font-size: 1.2em;
+                font-size: 1.3em;
+                letter-spacing: 2px;
             }
 
             .stats-container,
@@ -310,21 +552,45 @@
             }
 
             .section-title {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
 
             .social-links a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5em;
+                width: 60px;
+                height: 60px;
+                font-size: 1.8em;
+            }
+
+            .stat-badge {
+                min-width: 150px;
+                padding: 15px 20px;
             }
         }
 
-        /* Loading Animation */
+        /* Scanline effect */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.03) 0px,
+                rgba(0, 0, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -332,18 +598,22 @@
             }
         }
 
-        .container > * {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .skill-category, .project-card, .stat-item {
-            animation: fadeInUp 0.6s ease-out;
+        .skill-category, .project-card, .stat-badge {
+            animation: fadeInUp 0.8s ease-out;
             animation-fill-mode: both;
         }
 
         .skill-category:nth-child(1) { animation-delay: 0.1s; }
         .skill-category:nth-child(2) { animation-delay: 0.2s; }
         .skill-category:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .stat-badge:nth-child(1) { animation-delay: 0.1s; }
+        .stat-badge:nth-child(2) { animation-delay: 0.2s; }
+        .stat-badge:nth-child(3) { animation-delay: 0.3s; }
+        .stat-badge:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -351,8 +621,8 @@
         <!-- Header -->
         <header>
             <img src="https://avatars.githubusercontent.com/u/51239646?v=4" alt="Qinchi" class="avatar">
-            <h1>Qinchi</h1>
-            <p class="subtitle">DevOps | SRE | Network Engineer</p>
+            <h1>QINCHI</h1>
+            <p class="subtitle">DevOps // SRE // Network Engineer</p>
             <div class="social-links">
                 <a href="https://github.com/qinchi-ops" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
@@ -368,24 +638,44 @@
 
         <!-- GitHub Stats -->
         <div class="section">
-            <h2 class="section-title">📊 GitHub Statistics</h2>
+            <h2 class="section-title">📊 System Metrics</h2>
             <div class="stats-container">
-                <div class="stat-item">
-                    <img src="https://github-readme-stats.vercel.app/api?username=qinchi-ops&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true"
-                         alt="GitHub Stats"
-                         onerror="this.onerror=null; this.src='https://img.shields.io/badge/Stats-Loading-lightgray';">
+                <div class="stat-badge">
+                    <div class="stat-value">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="stat-label">Commits</div>
                 </div>
-                <div class="stat-item">
-                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qinchi-ops&layout=compact&theme=github_dark&hide_border=true"
-                         alt="Top Languages"
-                         onerror="this.onerror=null; this.src='https://img.shields.io/badge/Languages-Loading-lightgray';">
+                <div class="stat-badge">
+                    <div class="stat-value">
+                        <i class="fas fa-code-pull-request"></i>
+                    </div>
+                    <div class="stat-label">Pull Requests</div>
+                </div>
+                <div class="stat-badge">
+                    <div class="stat-value">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-label">Stars Earned</div>
+                </div>
+                <div class="stat-badge">
+                    <div class="stat-value">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-label">Repositories</div>
                 </div>
             </div>
+            <p style="text-align: center; color: var(--neon-blue); margin-top: 30px; font-size: 1.1em;">
+                <i class="fas fa-external-link-alt"></i>
+                <a href="https://github.com/qinchi-ops" target="_blank" style="color: var(--neon-blue); text-decoration: none; margin-left: 10px;">
+                    View Full Profile on GitHub
+                </a>
+            </p>
         </div>
 
         <!-- Skills -->
         <div class="section">
-            <h2 class="section-title">🛠️ Tech Stack</h2>
+            <h2 class="section-title">🛠️ Tech Arsenal</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
@@ -423,11 +713,11 @@
 
         <!-- Projects -->
         <div class="section">
-            <h2 class="section-title">🚀 Featured Projects</h2>
+            <h2 class="section-title">🚀 Mission Control</h2>
             <div class="projects-grid">
                 <a href="https://github.com/qinchi-ops/AWS" target="_blank" class="project-card">
-                    <h3>AWS SDK Boto3</h3>
-                    <p>AWS SDK and automation scripts for cloud operations</p>
+                    <h3><i class="fab fa-aws"></i> AWS SDK Boto3</h3>
+                    <p>Cloud infrastructure automation with Python boto3 SDK for scalable AWS operations</p>
                     <div class="project-stats">
                         <span><i class="fab fa-python"></i> Python</span>
                         <span><i class="fas fa-star"></i> ⭐</span>
@@ -435,8 +725,8 @@
                 </a>
 
                 <a href="https://github.com/qinchi-ops/NetDevOps" target="_blank" class="project-card">
-                    <h3>NetDevOps</h3>
-                    <p>Network automation and operations toolkit</p>
+                    <h3><i class="fas fa-network-wired"></i> NetDevOps</h3>
+                    <p>Network automation toolkit delivering efficient and reliable infrastructure management</p>
                     <div class="project-stats">
                         <span><i class="fab fa-python"></i> Python</span>
                         <span><i class="fas fa-star"></i> ⭐</span>
@@ -444,8 +734,8 @@
                 </a>
 
                 <a href="https://github.com/qinchi-ops/k8s-lab" target="_blank" class="project-card">
-                    <h3>K8s Lab</h3>
-                    <p>Kubernetes laboratory and experiments</p>
+                    <h3><i class="fas fa-dharmachakra"></i> K8s Lab</h3>
+                    <p>Kubernetes experimental environment for container orchestration research</p>
                     <div class="project-stats">
                         <span><i class="fas fa-terminal"></i> Shell</span>
                         <span><i class="fas fa-star"></i> ⭐</span>
@@ -453,8 +743,8 @@
                 </a>
 
                 <a href="https://github.com/qinchi-ops/govlog" target="_blank" class="project-card">
-                    <h3>govlog</h3>
-                    <p>Go logging library and utilities</p>
+                    <h3><i class="fab fa-golang"></i> govlog</h3>
+                    <p>High-performance logging library and utilities for Go applications</p>
                     <div class="project-stats">
                         <span><i class="fab fa-golang"></i> Go</span>
                         <span><i class="fas fa-star"></i> ⭐</span>
@@ -465,23 +755,26 @@
 
         <!-- Contribution Snake -->
         <div class="section">
-            <h2 class="section-title">📈 Contribution Activity</h2>
+            <h2 class="section-title">📈 Activity Log</h2>
             <div class="contribution-section">
-                <p style="margin-bottom: 20px; color: var(--text-secondary);">My GitHub contribution graph</p>
+                <p style="color: var(--text-secondary); font-size: 1.1em; margin-bottom: 20px;">
+                    <i class="fas fa-clock"></i> Real-time contribution tracking
+                </p>
                 <img src="https://raw.githubusercontent.com/qinchi-ops/qinchi-ops/output/github-contribution-grid-snake.svg"
                      alt="Contribution Snake"
-                     onerror="this.onerror=null; this.src='https://img.shields.io/badge/Contribution-Loading-lightgray'; this.parentElement.innerHTML='<p style=\'color: var(--text-secondary);\'>Contribution snake is being generated... Check back soon!</p>';">
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<p style=\'color: var(--neon-blue); font-size: 1.2em; padding: 40px;\'><i class=\'fas fa-cog fa-spin\'></i><br><br>Contribution visualization initializing...<br><span style=\'font-size: 0.9em; color: var(--text-secondary);\'>Check back shortly for live updates</span></p>';">
             </div>
         </div>
 
         <!-- Contact -->
         <div class="section" style="text-align: center;">
-            <h2 class="section-title">🤝 Let's Connect</h2>
-            <p style="font-size: 1.2em; margin-bottom: 20px;">
-                <a href="mailto:your.email@example.com" style="color: var(--primary-color); text-decoration: none;">your.email@example.com</a>
+            <h2 class="section-title">🤝 Establish Uplink</h2>
+            <p style="font-size: 1.4em; margin-bottom: 25px; color: var(--neon-blue);">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:your.email@example.com" style="color: var(--neon-blue); text-decoration: none; border-bottom: 2px solid var(--neon-purple);">your.email@example.com</a>
             </p>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">
-                I'm always interested in hearing about new projects and opportunities in DevOps, SRE, and Network Engineering.
+            <p style="color: var(--text-secondary); margin-bottom: 40px; font-size: 1.1em; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Open to collaborations in DevOps, SRE, and Network Engineering. Let's build something extraordinary together.
             </p>
             <div class="social-links" style="justify-content: center;">
                 <a href="https://github.com/qinchi-ops" target="_blank">
@@ -498,15 +791,17 @@
 
         <!-- Footer -->
         <footer>
-            <p>© 2026 Qinchi</p>
-            <p style="font-size: 0.9em; margin-top: 10px;">
-                <i class="fas fa-rocket"></i> "I automate everything, even my coffee machine ☕"
+            <p style="color: var(--neon-blue); font-size: 1.2em;">© 2026 QINCHI</p>
+            <p style="font-size: 1em; margin-top: 15px;">
+                <i class="fas fa-rocket"></i> "System status: Fully operational ☕"
+            </p>
+            <p style="font-size: 0.9em; margin-top: 20px; opacity: 0.7;">
+                <i class="fas fa-microchip"></i> Powered by caffeine and code
             </p>
         </footer>
     </div>
 
     <script>
-        // Add smooth animations
         document.addEventListener('DOMContentLoaded', function() {
             // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
@@ -518,11 +813,20 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.skill-category, .project-card, .stat-item').forEach(el => {
+            document.querySelectorAll('.skill-category, .project-card, .stat-badge').forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(el);
+            });
+
+            // Add glitch effect on hover for title
+            const title = document.querySelector('h1');
+            title.addEventListener('mouseenter', function() {
+                this.style.textShadow = '2px 0 var(--neon-purple), -2px 0 var(--neon-blue)';
+            });
+            title.addEventListener('mouseleave', function() {
+                this.style.textShadow = '0 0 30px rgba(0, 243, 255, 0.5)';
             });
         });
     </script>
