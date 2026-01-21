@@ -6,7 +6,7 @@
     <meta name="description" content="Qinchi - DevOps | SRE | Network Engineer">
     <title>Qinchi | DevOps & SRE Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,6 +16,7 @@
 
         :root {
             --primary: #6366f1;
+            --primary-light: #818cf8;
             --secondary: #8b5cf6;
             --accent-red: #ef4444;
             --bg: #f9fafb;
@@ -23,27 +24,31 @@
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --border: #e5e7eb;
-            --shadow: rgba(0, 0, 0, 0.04);
+            --shadow-sm: rgba(0, 0, 0, 0.02);
+            --shadow-md: rgba(99, 102, 241, 0.08);
+            --shadow-lg: rgba(99, 102, 241, 0.15);
         }
 
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-card);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
         }
 
         /* Header - Clean & Minimal */
         header {
             text-align: center;
-            padding: 30px 20px 40px;
+            padding: 40px 20px 50px;
         }
 
         .avatar {
@@ -51,109 +56,147 @@
             height: 120px;
             border-radius: 50%;
             border: 3px solid var(--border);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .avatar:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
         }
 
         h1 {
             font-family: 'Caveat', cursive;
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--primary);
             line-height: 1.2;
+            letter-spacing: 0.3px;
         }
 
         .subtitle {
-            font-size: 1em;
+            font-size: 1.05em;
             color: var(--text-secondary);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 500;
+            letter-spacing: 0.2px;
         }
 
         .tagline {
             font-family: 'Caveat', cursive;
-            font-size: 1.1em;
-            color: var(--primary);
-            margin-top: 8px;
+            font-size: 1.2em;
+            color: var(--secondary);
+            margin-top: 10px;
             font-weight: 500;
         }
 
-        /* Section Styles - Flat with Red Accent Border */
+        /* Section Styles - Enhanced */
         .section {
-            margin: 20px 0;
-            padding: 28px;
+            margin: 24px 0;
+            padding: 32px;
             background: var(--bg);
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
         .section-header {
             border: 2px solid var(--accent-red);
-            border-radius: 8px;
-            padding: 8px 16px;
+            border-radius: 10px;
+            padding: 10px 20px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            background: var(--bg-card);
+            transition: all 0.2s ease;
+        }
+
+        .section-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
         }
 
         .section-title {
             font-family: 'Caveat', cursive;
-            font-size: 1.6em;
+            font-size: 1.7em;
             color: var(--primary);
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: 0.3px;
         }
 
-        /* Stats */
+        /* Stats - Enhanced Design */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 20px 0;
+            gap: 14px;
+            margin: 24px 0;
         }
 
         .stat-item {
             background: var(--bg-card);
-            padding: 20px 12px;
-            border-radius: 10px;
+            padding: 24px 16px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .stat-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
         }
 
         .stat-icon {
-            font-size: 1.6em;
+            font-size: 1.8em;
             color: var(--primary);
-            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover .stat-icon {
+            transform: scale(1.1);
+            color: var(--secondary);
         }
 
         .stat-label {
-            font-size: 0.7em;
+            font-size: 0.68em;
             color: var(--text-secondary);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-align: center;
         }
 
         .profile-link {
             text-align: center;
-            margin-top: 18px;
+            margin-top: 20px;
         }
 
         .profile-link a {
@@ -163,161 +206,230 @@
             font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: color 0.2s ease;
+            gap: 8px;
+            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         .profile-link a:hover {
             color: var(--secondary);
+            background: rgba(99, 102, 241, 0.05);
         }
 
-        /* Skills */
+        /* Skills - Enhanced Design */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 20px 0;
+            gap: 14px;
+            margin: 24px 0;
         }
 
         .skill-item {
             background: var(--bg-card);
-            padding: 16px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 12px;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.2s ease;
+            flex-direction: column;
+            gap: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .skill-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .skill-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .skill-icon {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: var(--primary);
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.1);
+            color: var(--secondary);
         }
 
         .skill-content h3 {
             font-family: 'Fira Code', monospace;
             font-size: 0.95em;
             color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 8px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 0.3px;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
         }
 
         .skill-badge {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             background: var(--bg);
             color: var(--text-primary);
-            padding: 4px 10px;
-            border-radius: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 0.75em;
             font-weight: 500;
             transition: all 0.2s ease;
             border: 1px solid var(--border);
+            letter-spacing: 0.2px;
         }
 
         .skill-badge:hover {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            border-color: var(--primary);
-            transform: scale(1.05);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-md);
         }
 
-        /* Projects */
+        /* Projects - Enhanced Design */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 20px 0;
+            gap: 16px;
+            margin: 24px 0;
         }
 
         .project-card {
             background: var(--bg-card);
-            border-radius: 10px;
-            padding: 18px;
+            border-radius: 14px;
+            padding: 22px;
             border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
-            transform: translateY(-3px);
+            box-shadow: 0 12px 32px var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
         }
 
         .project-card h3 {
             font-family: 'Fira Code', monospace;
             color: var(--primary);
-            margin-bottom: 6px;
-            font-size: 1.05em;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .project-card p {
             color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-size: 0.88em;
-            line-height: 1.5;
+            margin-bottom: 14px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
         .project-meta {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             font-size: 0.75em;
-            color: var(--text-secondary);
         }
 
         .project-meta span {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 4px;
-            padding: 3px 8px;
-            background: rgba(99, 102, 241, 0.06);
-            border-radius: 8px;
+            gap: 5px;
+            padding: 5px 10px;
+            background: rgba(99, 102, 241, 0.08);
+            border-radius: 10px;
             font-weight: 500;
+            color: var(--primary);
+            transition: all 0.2s ease;
         }
 
-        /* Contribution */
+        .project-card:hover .project-meta span {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Contribution - Enhanced */
         .contribution-section {
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contribution-section:hover {
+            box-shadow: 0 8px 24px var(--shadow-sm);
         }
 
         .contribution-section img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-top: 12px;
+            border-radius: 10px;
+            margin-top: 16px;
         }
 
-        /* Contact */
+        /* Contact - Enhanced */
         .contact-section {
             text-align: center;
-            padding: 25px 20px;
+            padding: 28px 20px;
         }
 
         .contact-email {
-            font-size: 1.1em;
-            margin-bottom: 12px;
+            font-size: 1.15em;
+            margin-bottom: 14px;
             font-weight: 600;
         }
 
@@ -325,7 +437,7 @@
             color: var(--primary);
             text-decoration: none;
             border-bottom: 2px solid var(--secondary);
-            padding-bottom: 2px;
+            padding-bottom: 3px;
             transition: all 0.3s ease;
         }
 
@@ -336,86 +448,93 @@
 
         .contact-text {
             color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 0.92em;
-            line-height: 1.6;
+            margin-bottom: 16px;
+            font-size: 0.95em;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* Footer - Social Links at Bottom */
+        /* Footer - Enhanced */
         footer {
             text-align: center;
-            padding: 35px 15px 25px;
+            padding: 40px 15px 30px;
             border-top: 1px solid var(--border);
-            margin-top: 35px;
+            margin-top: 40px;
         }
 
         footer p {
-            margin: 8px 0;
-            font-size: 0.85em;
+            margin: 10px 0;
+            font-size: 0.87em;
             color: var(--text-secondary);
+            font-weight: 400;
         }
 
         footer .quote {
             font-family: 'Caveat', cursive;
-            font-size: 1.15em;
+            font-size: 1.2em;
             color: var(--primary);
-            margin-top: 12px;
+            margin-top: 16px;
             font-weight: 500;
         }
 
         .social-links-footer {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 24px;
         }
 
         .social-links-footer a {
             color: var(--text-primary);
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            padding: 12px;
-            border-radius: 12px;
+            font-size: 1.15em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 14px;
+            border-radius: 14px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
         }
 
         .social-links-footer a:hover {
             color: white;
-            background: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-lg);
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
             .container {
-                padding: 0 5px;
+                padding: 0 3px;
             }
 
             h1 {
-                font-size: 1.5em;
+                font-size: 1.7em;
             }
 
             .tagline {
-                font-size: 1em;
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 26px;
             }
 
             .stats-grid,
             .skills-grid,
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .section {
-                padding: 22px;
+                gap: 12px;
             }
         }
 
@@ -430,13 +549,17 @@
                 width: 100px;
                 height: 100px;
             }
+
+            .section {
+                padding: 22px;
+            }
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -444,25 +567,36 @@
             }
         }
 
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .skill-item, .project-card, .stat-item {
-            animation: fadeInUp 0.4s ease-out;
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             animation-fill-mode: both;
         }
 
-        .skill-item:nth-child(1) { animation-delay: 0.02s; }
-        .skill-item:nth-child(2) { animation-delay: 0.04s; }
-        .skill-item:nth-child(3) { animation-delay: 0.06s; }
-        .skill-item:nth-child(4) { animation-delay: 0.08s; }
-        .skill-item:nth-child(5) { animation-delay: 0.1s; }
-        .skill-item:nth-child(6) { animation-delay: 0.12s; }
-        .stat-item:nth-child(1) { animation-delay: 0.02s; }
-        .stat-item:nth-child(2) { animation-delay: 0.04s; }
-        .stat-item:nth-child(3) { animation-delay: 0.06s; }
-        .stat-item:nth-child(4) { animation-delay: 0.08s; }
-        .project-card:nth-child(1) { animation-delay: 0.02s; }
-        .project-card:nth-child(2) { animation-delay: 0.04s; }
-        .project-card:nth-child(3) { animation-delay: 0.06s; }
-        .project-card:nth-child(4) { animation-delay: 0.08s; }
+        .skill-item:nth-child(1) { animation-delay: 0.03s; }
+        .skill-item:nth-child(2) { animation-delay: 0.06s; }
+        .skill-item:nth-child(3) { animation-delay: 0.09s; }
+        .skill-item:nth-child(4) { animation-delay: 0.12s; }
+        .skill-item:nth-child(5) { animation-delay: 0.15s; }
+        .skill-item:nth-child(6) { animation-delay: 0.18s; }
+        .stat-item:nth-child(1) { animation-delay: 0.03s; }
+        .stat-item:nth-child(2) { animation-delay: 0.06s; }
+        .stat-item:nth-child(3) { animation-delay: 0.09s; }
+        .stat-item:nth-child(4) { animation-delay: 0.12s; }
+        .project-card:nth-child(1) { animation-delay: 0.03s; }
+        .project-card:nth-child(2) { animation-delay: 0.06s; }
+        .project-card:nth-child(3) { animation-delay: 0.09s; }
+        .project-card:nth-child(4) { animation-delay: 0.12s; }
     </style>
 </head>
 <body>
@@ -518,74 +652,86 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-                    <div class="skill-content">
-                        <h3>Cloud & DevOps</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
-                            <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
-                            <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="skill-content">
+                            <h3>Cloud & DevOps</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                        <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
                     </div>
                 </div>
 
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-                    <div class="skill-content">
-                        <h3>Network & Automation</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
-                            <span class="skill-badge"><i class="fab fa-golang"></i> Go</span>
-                            <span class="skill-badge"><i class="fas fa-terminal"></i> Shell</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="skill-content">
+                            <h3>Network & Automation</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-badge"><i class="fab fa-golang"></i> Go</span>
+                        <span class="skill-badge"><i class="fas fa-terminal"></i> Shell</span>
                     </div>
                 </div>
 
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="skill-content">
-                        <h3>Monitoring & Tools</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fas fa-fire"></i> Prometheus</span>
-                            <span class="skill-badge"><i class="fas fa-chart-area"></i> Grafana</span>
-                            <span class="skill-badge"><i class="fas fa-search"></i> ELK</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="skill-content">
+                            <h3>Monitoring & Tools</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fas fa-fire"></i> Prometheus</span>
+                        <span class="skill-badge"><i class="fas fa-chart-area"></i> Grafana</span>
+                        <span class="skill-badge"><i class="fas fa-search"></i> ELK</span>
                     </div>
                 </div>
 
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-cube"></i></div>
-                    <div class="skill-content">
-                        <h3>IaC & Configuration</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fas fa-cube"></i> Terraform</span>
-                            <span class="skill-badge"><i class="fas fa-server"></i> Ansible</span>
-                            <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                        <div class="skill-content">
+                            <h3>IaC & Configuration</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fas fa-cube"></i> Terraform</span>
+                        <span class="skill-badge"><i class="fas fa-server"></i> Ansible</span>
+                        <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
                     </div>
                 </div>
 
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
-                    <div class="skill-content">
-                        <h3>Operating Systems</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
-                            <span class="skill-badge"><i class="fab fa-ubuntu"></i> Ubuntu</span>
-                            <span class="skill-badge"><i class="fab fa-redhat"></i> RHEL</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                        <div class="skill-content">
+                            <h3>Operating Systems</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="skill-badge"><i class="fab fa-ubuntu"></i> Ubuntu</span>
+                        <span class="skill-badge"><i class="fab fa-redhat"></i> RHEL</span>
                     </div>
                 </div>
 
                 <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-infinity"></i></div>
-                    <div class="skill-content">
-                        <h3>CI/CD & Tools</h3>
-                        <div class="skill-list">
-                            <span class="skill-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
-                            <span class="skill-badge"><i class="fab fa-github"></i> Actions</span>
-                            <span class="skill-badge"><i class="fas fa-docker"></i> Registry</span>
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-infinity"></i></div>
+                        <div class="skill-content">
+                            <h3>CI/CD & Tools</h3>
                         </div>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
+                        <span class="skill-badge"><i class="fab fa-github"></i> Actions</span>
+                        <span class="skill-badge"><i class="fas fa-docker"></i> Registry</span>
                     </div>
                 </div>
             </div>
@@ -691,7 +837,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Intersection Observer for scroll animations
+            // Enhanced Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -699,13 +850,16 @@
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, { threshold: 0.1 });
+            }, observerOptions);
 
             document.querySelectorAll('.skill-item, .project-card, .stat-item').forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(8px)';
+                el.style.transform = 'translateY(20px)';
                 observer.observe(el);
             });
+
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
         });
     </script>
 </body>
