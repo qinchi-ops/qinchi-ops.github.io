@@ -6,7 +6,7 @@
     <meta name="description" content="Qinchi - DevOps | SRE | Network Engineer">
     <title>Qinchi | DevOps & SRE Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Architects+Daughter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,93 +17,367 @@
         :root {
             --primary: #6366f1;
             --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --bg: #fafafa;
+            --accent-red: #ef4444;
+            --bg: #f9fafb;
             --bg-card: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --border: #e2e8f0;
-            --shadow: rgba(99, 102, 241, 0.08);
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.04);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-card);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
-        /* Header - More Compact */
+        /* Header - Clean & Minimal */
         header {
             text-align: center;
-            padding: 30px 15px 25px;
+            padding: 30px 20px 40px;
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 3px solid white;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: transform 0.3s ease;
+            border: 3px solid var(--border);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .avatar:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
         }
 
         h1 {
-            font-family: 'Architects Daughter', cursive;
-            font-size: 2.8em;
-            font-weight: 500;
-            margin-bottom: 3px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
+            font-family: 'Caveat', cursive;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+            line-height: 1.2;
         }
 
         .subtitle {
             font-size: 1em;
             color: var(--text-secondary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
         }
 
         .tagline {
-            font-family: 'Architects Daughter', cursive;
-            font-size: 1.15em;
-            color: var(--secondary);
-            margin-top: 3px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.1em;
+            color: var(--primary);
+            margin-top: 8px;
+            font-weight: 500;
         }
 
-        .social-links {
+        /* Section Styles - Flat with Red Accent Border */
+        .section {
+            margin: 20px 0;
+            padding: 28px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .section-header {
+            border: 2px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 8px 16px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6em;
+            color: var(--primary);
+            font-weight: 600;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            padding: 20px 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
+        }
+
+        .stat-icon {
+            font-size: 1.6em;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.7em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .profile-link {
+            text-align: center;
             margin-top: 18px;
         }
 
-        .social-links a {
+        .profile-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .profile-link a:hover {
+            color: var(--secondary);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 1.4em;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .skill-content h3 {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95em;
             color: var(--text-primary);
-            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--bg);
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border);
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .project-card h3 {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-size: 0.88em;
+            line-height: 1.5;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 8px;
+            font-size: 0.75em;
+            color: var(--text-secondary);
+        }
+
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            background: rgba(99, 102, 241, 0.06);
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        /* Contribution */
+        .contribution-section {
+            text-align: center;
+            padding: 15px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .contribution-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .contact-email {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .contact-email a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 2px;
             transition: all 0.3s ease;
-            padding: 10px;
+        }
+
+        .contact-email a:hover {
+            color: var(--secondary);
+            border-color: var(--primary);
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.92em;
+            line-height: 1.6;
+        }
+
+        /* Footer - Social Links at Bottom */
+        footer {
+            text-align: center;
+            padding: 35px 15px 25px;
+            border-top: 1px solid var(--border);
+            margin-top: 35px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 0.85em;
+            color: var(--text-secondary);
+        }
+
+        footer .quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.15em;
+            color: var(--primary);
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        .social-links-footer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-links-footer a {
+            color: var(--text-primary);
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            padding: 12px;
             border-radius: 12px;
             background: var(--bg-card);
-            border: 2px solid var(--border);
+            border: 1px solid var(--border);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -112,280 +386,22 @@
             height: 48px;
         }
 
-        .social-links a:hover {
+        .social-links-footer a:hover {
             color: white;
-            border-color: var(--primary);
             background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px var(--shadow);
-        }
-
-        /* Section Styles - More Compact */
-        .section {
-            margin: 25px 0;
-            padding: 28px 30px;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 15px var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.12);
-        }
-
-        .section-title {
-            font-family: 'Architects Daughter', cursive;
-            font-size: 2em;
-            text-align: center;
-            margin-bottom: 22px;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
             border-color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
-        }
-
-        .stat-icon {
-            font-size: 1.6em;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        .stat-label {
-            font-size: 0.8em;
-            color: var(--text-secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 18px;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(236, 72, 153, 0.02) 100%);
-            border-radius: 12px;
-            padding: 20px 22px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
-            border-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.1);
-        }
-
-        .skill-category h3 {
-            font-family: 'Fira Code', monospace;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: white;
-            color: var(--text-primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            border: 1px solid var(--border);
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-        }
-
-        .skill-badge:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 3px 10px rgba(99, 102, 241, 0.2);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            padding: 22px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
-        }
-
-        .project-card:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
-            border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.12);
-        }
-
-        .project-card h3 {
-            font-family: 'Fira Code', monospace;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.05em;
-            font-weight: 500;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 8px;
-            font-size: 0.8em;
-            color: var(--text-secondary);
-        }
-
-        .project-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        /* Contribution */
-        .contribution-section {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(236, 72, 153, 0.02) 100%);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .contribution-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 15px;
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Contact */
-        .contact-section {
-            text-align: center;
-            padding: 30px 25px;
-        }
-
-        .contact-email {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .contact-email a {
-            color: var(--primary);
-            text-decoration: none;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-email a:hover {
-            color: var(--secondary);
-            border-color: var(--accent);
-        }
-
-        .contact-text {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 15px;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border);
-            margin-top: 35px;
-        }
-
-        footer p {
-            margin: 8px 0;
-            font-size: 0.9em;
-        }
-
-        footer .quote {
-            font-family: 'Architects Daughter', cursive;
-            font-size: 1.2em;
-            color: var(--primary);
-            margin-top: 10px;
-            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 0 8px;
+                padding: 0 5px;
             }
 
             h1 {
-                font-size: 2.2em;
+                font-size: 1.5em;
             }
 
             .tagline {
@@ -395,17 +411,24 @@
             .stats-grid,
             .skills-grid,
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .section {
-                padding: 22px 20px;
+                padding: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
 
-            .social-links a {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1em;
+            .avatar {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -413,7 +436,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -421,14 +444,25 @@
             }
         }
 
-        .skill-category, .project-card, .stat-card {
-            animation: fadeInUp 0.5s ease-out;
+        .skill-item, .project-card, .stat-item {
+            animation: fadeInUp 0.4s ease-out;
             animation-fill-mode: both;
         }
 
-        .skill-category:nth-child(1) { animation-delay: 0.03s; }
-        .skill-category:nth-child(2) { animation-delay: 0.06s; }
-        .skill-category:nth-child(3) { animation-delay: 0.09s; }
+        .skill-item:nth-child(1) { animation-delay: 0.02s; }
+        .skill-item:nth-child(2) { animation-delay: 0.04s; }
+        .skill-item:nth-child(3) { animation-delay: 0.06s; }
+        .skill-item:nth-child(4) { animation-delay: 0.08s; }
+        .skill-item:nth-child(5) { animation-delay: 0.1s; }
+        .skill-item:nth-child(6) { animation-delay: 0.12s; }
+        .stat-item:nth-child(1) { animation-delay: 0.02s; }
+        .stat-item:nth-child(2) { animation-delay: 0.04s; }
+        .stat-item:nth-child(3) { animation-delay: 0.06s; }
+        .stat-item:nth-child(4) { animation-delay: 0.08s; }
+        .project-card:nth-child(1) { animation-delay: 0.02s; }
+        .project-card:nth-child(2) { animation-delay: 0.04s; }
+        .project-card:nth-child(3) { animation-delay: 0.06s; }
+        .project-card:nth-child(4) { animation-delay: 0.08s; }
     </style>
 </head>
 <body>
@@ -439,80 +473,119 @@
             <h1>Hey, I'm Qinchi</h1>
             <p class="subtitle">DevOps | SRE | Network Engineer</p>
             <p class="tagline">building systems & automating everything ✨</p>
-            <div class="social-links">
-                <a href="https://github.com/qinchi-ops" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:your.email@example.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
         </header>
 
         <!-- GitHub Stats -->
         <div class="section">
-            <h2 class="section-title">GitHub Stats 📊</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-flag" style="font-size: 0.8em;"></i>
+                    GitHub Stats
+                </h2>
+            </div>
             <div class="stats-grid">
-                <div class="stat-card">
+                <div class="stat-item">
                     <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
                     <div class="stat-label">Commits</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-item">
                     <div class="stat-icon"><i class="fas fa-code-pull-request"></i></div>
                     <div class="stat-label">Pull Requests</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-item">
                     <div class="stat-icon"><i class="fas fa-star"></i></div>
                     <div class="stat-label">Stars</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-item">
                     <div class="stat-icon"><i class="fas fa-folder"></i></div>
                     <div class="stat-label">Repositories</div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="https://github.com/qinchi-ops" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+            <div class="profile-link">
+                <a href="https://github.com/qinchi-ops" target="_blank">
                     <i class="fas fa-external-link-alt"></i> View Full Profile →
                 </a>
-            </p>
+            </div>
         </div>
 
         <!-- Skills -->
         <div class="section">
-            <h2 class="section-title">Tech Stack 🛠️</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-wrench" style="font-size: 0.8em;"></i>
+                    Tech Stack
+                </h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
-                        <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
-                        <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
-                        <span class="skill-badge"><i class="fas fa-cube"></i> Terraform</span>
-                        <span class="skill-badge"><i class="fas fa-server"></i> Ansible</span>
-                        <span class="skill-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <div class="skill-content">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fab fa-aws"></i> AWS</span>
+                            <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                            <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-network-wired"></i> Network & Automation</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
-                        <span class="skill-badge"><i class="fab fa-golang"></i> Go</span>
-                        <span class="skill-badge"><i class="fas fa-terminal"></i> Shell</span>
-                        <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
-                        <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-content">
+                        <h3>Network & Automation</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-badge"><i class="fab fa-golang"></i> Go</span>
+                            <span class="skill-badge"><i class="fas fa-terminal"></i> Shell</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Monitoring & Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge"><i class="fas fa-fire"></i> Prometheus</span>
-                        <span class="skill-badge"><i class="fas fa-chart-area"></i> Grafana</span>
-                        <span class="skill-badge"><i class="fas fa-search"></i> ELK Stack</span>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-content">
+                        <h3>Monitoring & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fas fa-fire"></i> Prometheus</span>
+                            <span class="skill-badge"><i class="fas fa-chart-area"></i> Grafana</span>
+                            <span class="skill-badge"><i class="fas fa-search"></i> ELK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                    <div class="skill-content">
+                        <h3>IaC & Configuration</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fas fa-cube"></i> Terraform</span>
+                            <span class="skill-badge"><i class="fas fa-server"></i> Ansible</span>
+                            <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                    <div class="skill-content">
+                        <h3>Operating Systems</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
+                            <span class="skill-badge"><i class="fab fa-ubuntu"></i> Ubuntu</span>
+                            <span class="skill-badge"><i class="fab fa-redhat"></i> RHEL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-infinity"></i></div>
+                    <div class="skill-content">
+                        <h3>CI/CD & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
+                            <span class="skill-badge"><i class="fab fa-github"></i> Actions</span>
+                            <span class="skill-badge"><i class="fas fa-docker"></i> Registry</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -520,7 +593,12 @@
 
         <!-- Projects -->
         <div class="section">
-            <h2 class="section-title">Featured Projects 🚀</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-rocket" style="font-size: 0.8em;"></i>
+                    Featured Projects
+                </h2>
+            </div>
             <div class="projects-grid">
                 <a href="https://github.com/qinchi-ops/AWS" target="_blank" class="project-card">
                     <h3>AWS SDK Boto3</h3>
@@ -562,46 +640,58 @@
 
         <!-- Contribution Snake -->
         <div class="section">
-            <h2 class="section-title">Contribution Activity 📈</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line" style="font-size: 0.8em;"></i>
+                    Contribution Activity
+                </h2>
+            </div>
             <div class="contribution-section">
                 <img src="https://raw.githubusercontent.com/qinchi-ops/qinchi-ops/output/github-contribution-grid-snake.svg"
                      alt="Contribution Snake"
-                     onerror="this.onerror=null; this.parentElement.innerHTML='<p style=\'color: var(--text-secondary); padding: 20px;\'><i class=\'fas fa-sync fa-spin\'></i><br><br>Generating...</p>';">
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<p style=\'color: var(--text-secondary); padding: 15px; font-size: 0.9em;\'><i class=\'fas fa-sync fa-spin\'></i><br><br>Generating...</p>';">
             </div>
         </div>
 
         <!-- Contact -->
         <div class="section contact-section">
-            <h2 class="section-title">Let's Connect! 🤝</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-handshake" style="font-size: 0.8em;"></i>
+                    Let's Connect!
+                </h2>
+            </div>
             <div class="contact-email">
                 <a href="mailto:your.email@example.com">your.email@example.com</a>
             </div>
             <p class="contact-text">
                 Open to collaborations in DevOps, SRE, and Network Engineering. Let's build something great together!
             </p>
-            <div class="social-links" style="justify-content: center;">
-                <a href="https://github.com/qinchi-ops" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:your.email@example.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer with Social Links at Bottom -->
         <footer>
             <p>© 2026 Qinchi</p>
             <p class="quote">"I automate everything, even my coffee machine ☕"</p>
+
+            <!-- Social Links at Bottom -->
+            <div class="social-links-footer">
+                <a href="https://github.com/qinchi-ops" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:your.email@example.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </footer>
     </div>
 
     <script>
-        // Smooth animations on scroll
         document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -611,9 +701,9 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.skill-category, .project-card, .stat-card').forEach(el => {
+            document.querySelectorAll('.skill-item, .project-card, .stat-item').forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(15px)';
+                el.style.transform = 'translateY(8px)';
                 observer.observe(el);
             });
         });
